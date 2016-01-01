@@ -1,0 +1,37 @@
+
+/*_variable.scss*/
+$grid-gutter-width: 30px !default;
+
+$screen-sm-min: 768px !default;
+$screen-md-min: 992px !default;
+$screen-lg-min: 1200px !default;
+
+$container-sm: (720px + $grid-gutter-width) !default;
+$container-md: (940px + $grid-gutter-width) !default;
+$container-lg: (1140px + $grid-gutter-width) !default;
+
+/*mixin/_grid.scss*/
+@mixin container-fixed($gutter: $grid-gutter-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+  @include clearfix;
+}
+
+/*_grid.scss*/
+.container {
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: $container-sm;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+  }
+}
+
+

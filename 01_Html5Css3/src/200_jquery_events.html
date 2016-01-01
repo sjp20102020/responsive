@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>on demo</title>
+    <style>
+        p {
+            background: yellow;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        p.over {
+            background: #ccc;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+    <script src="vender/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+<p>Click me!</p>
+<span></span>
+
+<script>
+    var count = 0;
+
+
+
+   // Cancel a form submit action and prevent
+   // the event from bubbling up by returning false:
+    $( "form" ).on( "submit", false );
+
+   // Cancel only the default action
+   // by using .preventDefault().
+    $( "form" ).on( "submit", function( event ) {
+        event.preventDefault();
+    });
+
+    //Stop submit events from bubbling without
+    // preventing form submit, using .stopPropagation().
+    $( "form" ).on( "submit", function( event ) {
+        event.stopPropagation();
+    });
+
+
+
+</script>
+
+</body>
+</html>

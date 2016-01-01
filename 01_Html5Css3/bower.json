@@ -1,0 +1,28 @@
+{
+  "name": "bower.json",
+  "description": "",
+  "main": "",
+  "authors": [
+    "sjp20102020 <sjp20102020@gmail.com>"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/h5bp/html5-boilerplate/blob/master/LICENSE.txt"
+  },
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  },
+  "devDependencies": {
+    "angular": "angularjs#~1.4.7"
+  }
+}

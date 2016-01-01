@@ -1,0 +1,12 @@
+npm init
+npm install -g bower
+
+create .bowerrc file
+{
+"directory" : "app/bower"
+}
+
+
+
+bower install bootstrap
+(this will install jquery and bootstrap)

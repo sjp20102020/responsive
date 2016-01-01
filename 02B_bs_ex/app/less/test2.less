@@ -1,0 +1,88 @@
+@grid-columns: 12;
+/*grid.less*/
+/*Invoker-Start point*/
+@media (min-width: @screen-md-min) {
+  .make-grid(md);
+}
+/*mixin/grid-framework.less*/
+.make-grid(@class) {
+  .float-grid-columns(@class);
+  .loop-grid-columns(@grid-columns, @class, width);
+  .loop-grid-columns(@grid-columns, @class, pull);
+  .loop-grid-columns(@grid-columns, @class, push);
+  .loop-grid-columns(@grid-columns, @class, offset);
+}
+/*main loop*/
+.loop-grid-columns(@index, @class, @type)
+  when (@index >= 0) {
+  .calc-grid-column(@index, @class, @type);
+  .loop-grid-columns((@index - 1), @class, @type);
+}
+/*@type = width*/
+/*similary @type = push, pull, offset has code blocks */
+.calc-grid-column(@index, @class, @type)
+  when (@type = width) and (@index > 0) {
+  .col-@{class}-@{index} {
+    width: percentage((@index / @grid-columns));
+  }
+}
+
+.float-grid-columns(@class) {
+  .col(@index) { // initial
+    @item: ~".col-@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list)
+    when (@index =< @grid-columns) { // general
+    @item: ~".col-@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list)
+    when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+
+
+
+
+@media (min-width: 992px) {
+  .col-md-1, .col-md-2, .col-md-12 {
+    float: left;
+  }
+
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-2 {
+    width: 16.66666667%;
+  }
+  .col-md-1 {
+    width: 8.33333333%;
+  }
+
+  .col-md-pull-12 {
+    right: 100%;
+  }
+  .col-md-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-md-pull-0 {
+    right: auto;
+  }
+
+
+  .col-md-push-12 {
+    left: 100%;
+  }
+  ....
+
+  .col-md-offset-12 {
+    margin-left: 100%;
+  }
+ ...
+}

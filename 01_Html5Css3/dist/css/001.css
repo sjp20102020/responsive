@@ -1,0 +1,9 @@
+/*https://www.youtube.com/watch?v=fA1NW-T1QXc  */
+
+
+p::first-letter {
+    font-weight: bold;
+    font-size: 300%
+background-color: red;
+    color: red;
+}
